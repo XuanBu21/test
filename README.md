@@ -1,58 +1,16 @@
-# Modern JS Scaffold
+# Dynamic Visualization for Gender Wage Gap
 
-In this folder I've provided an example project that enables you to use really modern javascript tooling with as little effort as possible. This scaffold includes
-
-- a dev server that combines javascript modules and presents them to the browser. This comes with autoreload for free! It's great.
-- It also includes linters and autoformaters so you'll be able to check if your writing well styled javascript code. I have some pretty strong linting in here. You can disable them if you want, but I will judge you.
+This repo is for the project of the dynamic visualizations of the gender wage gap (in the US and accross the world).
 
 
 
-## Setup
+# Reference:
+The codes of building the sidebar and combining text and charts are heavily based on the codes from the "slide-show" workshop by Andrew McNutt, the professor of the course CAPP 30239 Data Visualization for Public Policy.
 
-As always, have npm/node/yarn installed.
+The codes of making the line chart (lineChart function from ./src/app.js) are inspired by several D3 tutorial sources:
+- D3 Graph Gallery, "Line plot with dropdown to filter group in d3.js", https://www.d3-graph-gallery.com/graph/line_filter.html
+- D3 Graph Gallery, "Line plot with several groups", https://www.d3-graph-gallery.com/graph/line_several_group.html
+- Jill, Hubley’s Block, 2016, "line chart with dropdown selector", http://bl.ocks.org/jhubley/17aa30fd98eb0cc7072f
+- Amber, Thomas' Block, 2017, "Nesting and Accessing Data in D3v4", https://amber.rbind.io/2017/05/02/nesting/
 
-```sh
-npm install
-# then
-npm run start
-
-# or if yarn-ing
-yarn
-# then
-yarn start
-```
-
-
-You will still need to be explicit about your imports, eg
-```js
-import {functionFromModule} from 'target-module';
-```
-
-In this scaffold I have not installed any d3 packages. Some helpful ones (read the ones I usually end up using) are d3-selection, d3-scale, and d3-shape. To add one of these packages just do
-
-```sh
-npm install --save PACKAGENAME
-
-# or if yarning
-yarn add PACKAGENAME
-```
-
-
-## Usage
-
-Development:
-
-Step 1: Do all of your work in src. There is no step 2.
-
-Production:
-
-There are currently two easy ways to deploy this scaffold onto the internet.  
-
-### Netlify
-
-Netlify is an excellent company that tries to make the dev process as easy as possible. The way you deploy this scaffold there is get an account, start a new project, point it to the relevant github folder (that contains just this scaffold!), set the build command to be 'yarn build' and that's it.
-
-
-### GH Pages
-
-gh-pages is a wonderful resource for doing web-development, and allows you to have classy YOU_PERSONAL_DOMAIN/projectname type links. You can deploy this scaffold there by running 'yarn build' in your command line, commiting the modified file, and push to github. If you've configured your projects settings correct it should all just work out.
+The raw data is from the Bureau of Labor Statistics Current Population Survey, https://www.bls.gov/cps/home.htm
