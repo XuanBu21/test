@@ -27,8 +27,10 @@ The codes of making the point chart (./src/point-chart.js) are inspired by the f
 
 Date source:
 - line chart:
+
 Bureau of Labor Statistics Current Population Survey, https://www.bls.gov/cps/home.htm
 - point chart:
+
 population, https://data.oecd.org/pop/population.htm
 gross national income, https://data.oecd.org/natincome/gross-national-income.htm#indicator-chart
 gender wage gap, https://data.oecd.org/earnwage/gender-wage-gap.htm#indicator-chart
