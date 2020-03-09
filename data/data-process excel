@@ -1,0 +1,14 @@
+=if(A2="AUS", "Australia", if(A2="AUT", "Austria", if(A2="BEL", "Belgium", if(A2="CAN", "Canada", if(A2="CHE", "Switzerland", if(A2="DEU", "Germany", if(A2="DNK", "Denmark", if(A2="ESP", "Spain", if(A2="FIN", "Finland", if(A2="FRA", "France", if(A2="GBR", "Britain", if(A2="GRC", "Greece", if(A2="IRE", "Ireland", if(A2="ISL", "Iceland", if(A2="ITA", "Italy", if(A2="JPN", "Japan", if(A2="KOR", "South Korea", if(A2="LUX", "Luxemburg", if(A2="MEX", "Mexico", if(A2="NLD", "Netherlands", if(A2="NOR", "Norway", if(A2="NZL", "New Zealand", if(A2="PRT", "Portugal", if(A2="SWE", "Sweden", if(A2="TUR", "Turkey", if(A2="USA", "USA", if(A2="POL", "Poland", if(A2="CHL", "Chile", if(A2="SVK", "Slovak Republic", if(A2="CZE", "Czech Republic", if(A2="SVN", "Slovenia", if(A2="EST", "Estonia", if(A2="HUN", "Hungary", if(A2="IRL", "Ireland", if(A2="ARG", "Argentina", if(A2="ISR", "Israel", if(A2="BRA", "Brazil", if(A2="CHN", "China", if(A2="IND", "India", if(A2="IDN", "Indonesia", if(A2="RUS", "Russian", if(A2="SAU", "Saudi Arabia", if(A2="ZAF", "South Africa", if(A2="OECD", "OECD", if(A2="BGR", "Bulgaria", if(A2="CYP", "Cyprus", if(A2="LTU", "Lithuania", if(A2="LVA", "Latvia", if(A2="MLT", "Malta", if(A2="ROU", "Romania", if(A2="COL", "Colombia", if(A2="CRI", "Costa Rica", if(A2="HRV", "Croatia", "")))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+
+
+=if(A2="AUS", "Oceania", if(A2="AUT", "Europe", if(A2="BEL", "Europe", if(A2="CAN", "North Americas", if(A2="CHE", "Europe", if(A2="DEU", "Europe", if(A2="DNK", "Europe", if(A2="ESP", "Europe", if(A2="FIN", "Europe", if(A2="FRA", "Europe", if(A2="GBR", "Europe", if(A2="GRC", "Europe", if(A2="IRE", "Europe", if(A2="ISL", "Europe", if(A2="ITA", "Europe", if(A2="JPN", "Asia", if(A2="KOR", "Asia", if(A2="LUX", "Europe", if(A2="MEX", "North Americas", if(A2="NLD", "Europe", if(A2="NOR", "Europe", if(A2="NZL", "Oceania", if(A2="PRT", "Europe", if(A2="SWE", "Europe", if(A2="TUR", "Europe", if(A2="USA", "USA", if(A2="POL", "Europe", if(A2="CHL", "South Americas", if(A2="SVK", "Europe", if(A2="CZE", "Europe", if(A2="SVN", "Europe", if(A2="EST", "Europe", if(A2="HUN", "Europe", if(A2="IRL", "Europe", if(A2="ARG", "South Americas", if(A2="ISR", "Asia", if(A2="BRA", "South Americas", if(A2="CHN", "Asia", if(A2="IND", "Asia", if(A2="IDN", "Asia", if(A2="RUS", "Europe", if(A2="SAU", "Asia", if(A2="ZAF", "Africa", if(A2="OECD", "OECD", if(A2="BGR", "Europe", if(A2="CYP", "Europe", if(A2="LTU", "Europe", if(A2="LVA", "Europe", if(A2="MLT", "Europe", if(A2="ROU", "Europe", if(A2="COL", "South Americas", if(A2="CRI", "North Americas", if(A2="HRV", "Europe", "")))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+
+
+Oceania
+Europe
+North Americas
+South Americas
+Africa
+Asia
