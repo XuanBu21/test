@@ -31,6 +31,6 @@ Date source:
 Bureau of Labor Statistics Current Population Survey, https://www.bls.gov/cps/home.htm
 - point chart:
 
-population, https://data.oecd.org/pop/population.htm
-gross national income, https://data.oecd.org/natincome/gross-national-income.htm#indicator-chart
-gender wage gap, https://data.oecd.org/earnwage/gender-wage-gap.htm#indicator-chart
+1. population, https://data.oecd.org/pop/population.htm
+2. gross national income, https://data.oecd.org/natincome/gross-national-income.htm#indicator-chart
+3. gender wage gap, https://data.oecd.org/earnwage/gender-wage-gap.htm#indicator-chart
