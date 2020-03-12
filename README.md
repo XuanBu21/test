@@ -3,9 +3,9 @@
 This repo is for the project of the dynamic visualizations of the gender wage gap (in the US and accross the world).
 
 # Interface
+![](interface/linechart.png)
 
-
-# Reference:
+# Reference
 The codes of building the sidebar and combining text and charts are heavily based on the codes from the "slide-show" workshop by Andrew McNutt, the professor of the course CAPP 30239 Data Visualization for Public Policy.
 
 The codes of making the line chart (./src/line-chart.js) are inspired by the following D3 tutorial sources:
