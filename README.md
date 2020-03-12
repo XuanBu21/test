@@ -3,7 +3,11 @@
 This repo is for the project of the dynamic visualizations of the gender wage gap (in the US and accross the world).
 
 # Interface
+To explore the gender wage gap in the US, you can select the category of interest and hover your mouse to the group of interest if you want to check a single line.
 ![](interface/linechart.png)
+
+To explore the gender wage gap across the world, you can move the slider to check the trend over the decades and hover your mouse to the group of interest if you want to check a certain group (continent).
+![](interface/pointchart.png)
 
 # Reference
 The codes of building the sidebar and combining text and charts are heavily based on the codes from the "slide-show" workshop by Andrew McNutt, the professor of the course CAPP 30239 Data Visualization for Public Policy.
