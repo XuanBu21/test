@@ -1,8 +1,12 @@
-// The codes of building the sidebar and combining text and charts are heavily based on the codes from the
-// workshop "slide-show" by Andrew McNutt, the professor of the course CAPP 30239 Data Visualization for Public Policy.
+// CAPP 30239 Data Visualization for Public Policy
+// HW-10
+// Xuan Bu
 
-// The references of making the line charts are in the js file "line-chart.js".
-// The references of making the point charts are in the js file "point-chart.js".
+// Reference:
+// 1. The codes of building the sidebar and combining text and charts are heavily based on the codes from the
+// workshop "slide-show" by Andrew McNutt, the professor of the course CAPP 30239 Data Visualization for Public Policy.
+// 2. The references of making the line charts are in the js file "line-chart.js".
+// 3. The references of making the point charts are in the js file "point-chart.js".
 
 const domReady = require("domready");
 import { select } from "d3-selection";
@@ -29,7 +33,6 @@ const slideChartTypeMap = {
 
 function app(linedata, pointdata, article) {
   const state = { slideIdx: "Gender Earning Ratio across the USA" };
-  // const state = { slideIdx: "Gender Earning Ratio over the World" };
 
   const buttons = select(".buttons-container")
     .selectAll("button")

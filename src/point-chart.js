@@ -1,9 +1,16 @@
+// CAPP 30239 Data Visualization for Public Policy
+// HW-10
+// Xuan Bu
+
+// Reference:
 // The codes of making the point chart are inspired by the following D3 tutorial sources:
 // 1. D3 Graph Gallery, "Colored bubble plot in d3.js", https://www.d3-graph-gallery.com/graph/bubble_color.html
 // 2. D3 Graph Gallery, "Add tooltip to bubble chart-1", https://www.d3-graph-gallery.com/graph/bubble_template.html
 // 3. D3 Graph Gallery, "Add tooltip to bubble chart-2", https://www.d3-graph-gallery.com/graph/bubble_tooltip.html
 // 4. AmeliaBR, 2014, "Answer to Question 'D3 - Positioning tooltip on SVG element not working'", https://stackoverflow.com/questions/21153074/d3-positioning-tooltip-on-svg-element-not-working
 // 5. John, Walley, d3-simple-slider, (2019), GitHub repository, https://github.com/johnwalley/d3-simple-slider
+// 6. David, Gomez, "Answer to Question 'D3.js: Import file changing with a slider'", https://stackoverflow.com/questions/54315685/d3-js-import-file-changing-with-a-slider
+// 7. d3noob's Block, 2016, "Range input with v4", https://bl.ocks.org/d3noob/147791d51cf6516715914c49cb869f57
 
 // Data source:
 // 1. population, https://data.oecd.org/pop/population.htm
@@ -17,7 +24,6 @@ import { extent, max } from "d3-array";
 import { nest } from "d3-collection";
 import { format } from "d3-format";
 import { transition } from "d3-transition";
-import { sliderHorizontal } from "d3-simple-slider";
 
 export default function pointChart(data) {
   {
@@ -30,8 +36,9 @@ export default function pointChart(data) {
       "South Americas",
       "USA"
     ];
-    const state = { year: 2016 };
-    var size = 18;
+    const state = { year: 2000 };
+    var position = 18;
+    var population = [5, 50, 150, 300];
 
     // set up canvas
     var margin = { top: 30, bottom: 70, left: 60, right: 30 };
@@ -53,61 +60,23 @@ export default function pointChart(data) {
       return d.key;
     });
 
-    // set up selection box
+    // initialize graph div
     const div = select(".main-area")
       .append("div")
       .attr("class", "pointgraph");
 
-    // const dropDown = div
-    // .append("select")
-    // .attr("id", "selectbox")
-    //   .on("change", function dropdownReaction(d) {
-    //     console.log(this.value)
-    //     state.year = this.value;
-    //     update(this.value, size);
-    //   });
-
-    // dropDown
-    //   .selectAll("option")
-    //   .data(years)
-    //   .enter()
-    //   .append("option")
-    //   .attr("value", d => d)
-    //   .text(d => d);
-
     // set up time slider
-    const sliderDiv = div.append("div").attr("id", "slider");
-
-    var slider = sliderHorizontal()
-      .min(1979)
-      .max(2018)
-      .step(1)
-      .width(300)
-      // .displayValue(false)
-      .default(state.year)
-      .on("onchange", val => {
-        console.log(val);
-        select("#value").text(val);
-        // state.year = this.value;
-        // console.log(this.value)
-        // update(this.value, size);
-      });
-
-    // slider
-    //   .selectAll("option")
-    //   .data(years)
-    //   .enter()
-    //   .append("option")
-    //   .attr("value", d => d)
-    //   .text(d => d);
-
-    select("#slider")
-      .append("svg")
-      .attr("width", 500)
-      .attr("height", 100)
-      .append("g")
-      .attr("transform", "translate(135, 60)")
-      .call(slider);
+    const slider = div
+      .append("input")
+      .attr("id", "slider")
+      .attr("type", "range")
+      .attr("max", 2018)
+      .attr("min", 1979)
+      .attr("step", 1)
+      .on("input", function dropdownReaction(d) {
+        update(this.value);
+      })
+      .property("value", "2000");
 
     // set up svg
     const svg = div
@@ -191,14 +160,6 @@ export default function pointChart(data) {
         window.open("https://data.oecd.org/");
       });
 
-    // svg
-    //   .append("g")
-    //   .append("text")
-    //   .attr("fill", "#4D5656")
-    //   .attr("transform", "translate(16, 10)")
-    //   .attr("font-size", "14px")
-    //   .text("*Earnings Ratio = Female-to-Male Median Yearly Earning");
-
     // create tooltip
     var tooltip = div
       .append("div")
@@ -241,39 +202,18 @@ export default function pointChart(data) {
       return d.key == state.year;
     });
 
-    // updateLegend(selectedCatGroup, colorSex, size);
-
-    // set up initial description
-    // var des = description[iniCatName[0].key].split("\n");
-    // var desText = svg
-    //   .append("g")
-    //   .append("text")
-    //   .attr("class", "description")
-    //   .attr("transform", "translate(340, 30)")
-    //   .attr("font-family", "Courier")
-    //   .attr("font-size", "14px")
-    //   .attr("fill", "#616161");
-
-    // var i;
-    // for (i = 0; i < des.length; i++) {
-    //   desText
-    //     .append("tspan")
-    //     .text(des[i])
-    //     .attr("x", 0)
-    //     .attr("dy", "1em");
-    // }
-
-    // // create text box
-    // svg
-    //   .append("g")
-    //   .append("rect")
-    //   .attr("id", "textbox")
-    //   .attr("transform", "translate(330, 25)")
-    //   .attr("width", 270)
-    //   .attr("height", 100)
-    //   .attr("stroke", "#9E9E9E")
-    //   .attr("stroke-width", 2)
-    //   .attr("fill", "none");
+    // set up initial year label
+    var yearLaebl = svg
+      .append("g")
+      .append("text")
+      .transition()
+      .duration(350)
+      .attr("id", "yearlabel")
+      .attr("transform", "translate(185, 13)")
+      .attr("font-family", "Courier")
+      .attr("font-size", "14px")
+      .attr("fill", "#616161")
+      .text("Year: 2000");
 
     // initialize graph
     // first level of the nested data
@@ -299,7 +239,7 @@ export default function pointChart(data) {
       .on("mousemove", keepTooltip)
       .on("mouseleave", removeTooltip)
       .transition()
-      .duration(750)
+      .duration(10)
       .attr("cx", d => xScale(d.income))
       .attr("cy", d => yScale(d.gap))
       .attr("r", d => sizeScale(d.pop))
@@ -330,43 +270,89 @@ export default function pointChart(data) {
     };
 
     // set up legend
-    var legend = div
+    var legendPop = div
       .append("div")
-      .attr("class", "pointlegend")
+      .attr("class", "populationlegend")
       .append("svg");
 
-    // set up legend circle
-    legend
-      .selectAll("mydots")
+    var legendContinent = div
+      .append("div")
+      .attr("class", "continentlegend")
+      .append("svg");
+
+    // set up legend title (population)
+    legendPop
+      .append("text")
+      .style("font-size", 12)
+      .transition()
+      .duration(350)
+      .attr("x", 10)
+      .attr("y", 10)
+      .text("Population (M)");
+
+    // set up legend circle (population)
+    legendPop
+      .selectAll("popdots")
+      .data(population)
+      .enter()
+      .append("circle")
+      .transition()
+      .duration(350)
+      .attr("cx", position + 25)
+      .attr("cy", function(d, i) {
+        return i * position + 25;
+      })
+      .attr("r", d => sizeScale(d))
+      .style("fill", "none")
+      .attr("stroke", "black");
+
+    // set up legend label (population)
+    legendPop
+      .selectAll("poplabels")
+      .data(population)
+      .enter()
+      .append("text")
+      .style("font-size", 10)
+      .transition()
+      .duration(350)
+      .attr("x", position + 75)
+      .attr("y", function(d, i) {
+        return (i + 1) * position + 10;
+      })
+      .text(d => d);
+
+    // set up legend circle (continent)
+    legendContinent
+      .selectAll("contdots")
       .data(continents)
       .enter()
       .append("circle")
       .on("mouseover", highlight)
       .on("mouseleave", nohighlight)
       .transition()
-      .duration(750)
-      .attr("class", "dot")
-      .attr("cx", size + 20)
+      .duration(350)
+      .attr("class", "contdot")
+      .attr("cx", position + 20)
       .attr("cy", function(d, i) {
-        return i * size + 10;
+        return i * position + 10;
       })
       .attr("r", 8)
       .attr("fill", d => colorScale(d));
 
-    // set up legend label
-    legend
-      .selectAll("mylabels")
+    // set up legend label (continent)
+    legendContinent
+      .selectAll("contlabels")
       .data(continents)
       .enter()
       .append("text")
       .on("mouseover", highlight)
       .on("mouseleave", nohighlight)
       .transition()
-      .duration(750)
-      .attr("class", "label")
-      .attr("x", size + 35)
+      .duration(350)
+      .attr("class", "contlabel")
+      .attr("x", position + 35)
       .attr("y", function(d, i) {
-        return (i + 1) * size - 6;
+        return (i + 1) * position - 6;
       })
       .attr("fill", d => colorScale(d))
       .text(d => d)
@@ -374,52 +360,28 @@ export default function pointChart(data) {
       .style("alignment-baseline", "middle");
 
     // update function
-    function update(year, size) {
+    function update(year) {
       // clear old graphs
       select(".year").remove();
       select(".point").remove();
-      // select(".legend").remove();
-      // select(".description").remove();
-      // select("#textbox").remove();
+      select("#yearlabel").remove();
 
       // firlter selected category
       var selectedYearArray = nested.filter(function(d) {
         return d.key == year;
       });
 
-      // // update description
-      // var updateDes = description[selectedCat[0].key].split("\n");
-      // var desText = svg
-      //   .append("g")
-      //   .append("text")
-      //   .attr("class", "description")
-      //   .attr("transform", "translate(340, 30)")
-      //   .attr("font-family", "Courier")
-      //   .attr("font-size", "14px")
-      //   .attr("fill", "#616161");
+      // update year label
+      var updateYearLabel = svg
+        .append("g")
+        .append("text")
+        .attr("id", "yearlabel")
+        .attr("transform", "translate(185, 13)")
+        .attr("font-family", "Courier")
+        .attr("font-size", "14px")
+        .attr("fill", "#616161")
+        .text("Year: " + year);
 
-      // var i;
-      // for (i = 0; i < des.length; i++) {
-      //   desText
-      //     .append("tspan")
-      //     .text(updateDes[i])
-      //     .attr("x", 0)
-      //     .attr("dy", "1em");
-      // }
-
-      // // recreate text box
-      // svg
-      //   .append("g")
-      //   .append("rect")
-      //   .attr("id", "textbox")
-      //   .attr("transform", "translate(330, 25)")
-      //   .attr("width", 270)
-      //   .attr("height", 100)
-      //   .attr("stroke", "#9E9E9E")
-      //   .attr("stroke-width", 2)
-      //   .attr("fill", "none");
-
-      // console.log(selectedYearArray)
       // update first level of the nested data
       var updateYear = svg
         .selectAll(".year")
@@ -443,7 +405,7 @@ export default function pointChart(data) {
         .on("mousemove", keepTooltip)
         .on("mouseleave", removeTooltip)
         .transition()
-        .duration(750)
+        .duration(10)
         .attr("cx", d => xScale(d.income))
         .attr("cy", d => yScale(d.gap))
         .attr("r", d => sizeScale(d.pop))

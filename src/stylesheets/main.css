@@ -1,3 +1,7 @@
+/* CAPP 30239 Data Visualization for Public Policy
+HW-10
+Xuan Bu */
+
 a,
 .source {
   cursor: pointer;
@@ -70,7 +74,13 @@ h5 {
   bottom: 505px;
 }
 
-.pointlegend {
+.populationlegend {
+  position: absolute;
+  left: 400px;
+  bottom: 520px;
+}
+
+.continentlegend {
   position: relative;
   left: 500px;
   bottom: 520px;
@@ -102,4 +112,14 @@ button {
   padding: 10px;
   font-size: 16px;
   font-family: sans-serif;
+}
+
+#slider {
+  position: relative;
+  left: 95px;
+  bottom: -50px;
+}
+
+.title {
+  font-family: "Courier New";
 }

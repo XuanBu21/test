@@ -1,3 +1,8 @@
+// CAPP 30239 Data Visualization for Public Policy
+// HW-10
+// Xuan Bu
+
+// Reference:
 // The codes of making the line chart are inspired by the following D3 tutorial sources:
 // 1. D3 Graph Gallery, "Line plot with dropdown to filter group in d3.js", https://www.d3-graph-gallery.com/graph/line_filter.html
 // 2. D3 Graph Gallery, "Line plot with several groups", https://www.d3-graph-gallery.com/graph/line_several_group.html
@@ -85,16 +90,16 @@ export default function lineChart(data) {
       })
       .entries(data);
 
-    // set up selection box
+    // initialize graph div
     const div = select(".main-area")
       .append("div")
       .attr("class", "linegraph");
 
+    // set up selection box
     const dropDown = div
       .append("select")
       .attr("id", "selectbox")
       .on("change", function dropdownReaction(d) {
-        state.category = this.value;
         update(this.value, size);
       });
 
