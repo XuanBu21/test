@@ -24,6 +24,8 @@ The codes of making the point chart (./src/point-chart.js) are inspired by the f
 3. D3 Graph Gallery, "Add tooltip to bubble chart-2", https://www.d3-graph-gallery.com/graph/bubble_tooltip.html
 4. AmeliaBR, 2014, "Answer to Question 'D3 - Positioning tooltip on SVG element not working'", https://stackoverflow.com/questions/21153074/d3-positioning-tooltip-on-svg-element-not-working
 5. John, Walley, d3-simple-slider, (2019), GitHub repository, https://github.com/johnwalley/d3-simple-slider
+6. David, Gomez, "Answer to Question 'D3.js: Import file changing with a slider'", https://stackoverflow.com/questions/54315685/d3-js-import-file-changing-with-a-slider
+7. d3noob's Block, 2016, "Range input with v4", https://bl.ocks.org/d3noob/147791d51cf6516715914c49cb869f57
 
 Date source:
 - line chart:
