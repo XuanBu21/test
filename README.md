@@ -33,12 +33,13 @@ The codes of making the point chart (./src/point-chart.js) are inspired by the f
 7. d3noob's Block, 2016, "Range input with v4", https://bl.ocks.org/d3noob/147791d51cf6516715914c49cb869f57
 
 The codes for making the github link in my webpage:
-Tim, Holman, 2016, GitHub Corners, http://tholman.com/github-corners/
+1. Tim, Holman, 2016, GitHub Corners, http://tholman.com/github-corners/
 
 Date source:
 - line chart:
 
-Bureau of Labor Statistics Current Population Survey, https://www.bls.gov/cps/home.htm
+1.Bureau of Labor Statistics Current Population Survey, https://www.bls.gov/cps/home.htm
+
 - point chart:
 
 1. population, https://data.oecd.org/pop/population.htm
