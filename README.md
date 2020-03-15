@@ -38,7 +38,7 @@ The codes for making the github link in my webpage:
 Date source:
 - line chart:
 
-1.Bureau of Labor Statistics Current Population Survey, https://www.bls.gov/cps/home.htm
+1. Bureau of Labor Statistics Current Population Survey, https://www.bls.gov/cps/home.htm
 
 - point chart:
 
